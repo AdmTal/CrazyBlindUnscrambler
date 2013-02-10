@@ -11,7 +11,7 @@ var b_height = 240;
 
 var num_blocks = 16;
 
-var block_size = 9;
+var block_size;// = 5;
 // Threshold is a value that a possible match must not exceed
 var threshold = 100;
 var threshold_lr = Number.MAX_VALUE;  // max value is like no threshold  
@@ -196,6 +196,8 @@ var final_canvas_context;
 var drawn_tiles; 
 
 function load_picture_and_cut_into_tiles(){
+
+  block_size = parseInt(document.getElementById("block_size").value);
   drawn_tiles = new Array();
   tiles = new Array();    
   canvas = document.getElementById('datadrop');
@@ -234,15 +236,19 @@ function load_picture_and_cut_into_tiles(){
   for(var i=0; i<tiles.length; i++){
   
     if (tiles[i].left != -1 && (i != tiles[tiles[i].left].right)){
+      //alert("Tile " + i + " cant go left to " + tiles[i].left);
       tiles[i].left = -1;
     }
     if (tiles[i].right != -1 && (i != tiles[tiles[i].right].left)){
+      //alert("Tile " + i + " cant go right to " + tiles[i].right);
       tiles[i].right = -1;
     }
     if (tiles[i].bottom != -1 && (i != tiles[tiles[i].bottom].top)){
+      //alert("Tile " + i + " cant go down to " + tiles[i].bottom);
       tiles[i].bottom = -1;
     }    
     if (tiles[i].top != -1 && (i != tiles[tiles[i].top].bottom)){
+      //alert("Tile " + i + " cant go up to" + tiles[i].top);
       tiles[i].top = -1;
     }       
     message2 += i + "\t" + tiles[i].bottom + "\t" + tiles[i].top + "\t" + tiles[i].left + "\t" + tiles[i].right + "\n";
@@ -263,8 +269,8 @@ function load_picture_and_cut_into_tiles(){
 function drawTree(t, x, y, rec){
 //  if (t.drawn)
 //    return;
-//  if ($.inArray({x:y}, drawn_tiles) != -1)
-//    return;
+  //if ($.inArray({x:y}, drawn_tiles) != -1)
+  //  return;
   if (rec < rec_limit){ 
     if (t.right != -1)
       drawTree(tiles[t.right], x+60, y,rec+1);  
@@ -275,9 +281,8 @@ function drawTree(t, x, y, rec){
     if (t.bottom != -1)
       drawTree(tiles[t.bottom], x, y+60,rec+1); 
   }
-  //final_canvas_context.putImageData(t.data,x,y); 
   puzzle_context.putImageData(t.data,x,y);
-//  drawn_tiles.push({x:y});
+  //drawn_tiles.push({x:y});
 //  t.drawn = true;
 }
 

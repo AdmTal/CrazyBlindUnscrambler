@@ -23,9 +23,6 @@ $(document).ready(function() {
 
         // Handle the final drop...
         .bind('drop', function(ev) {
-            working_div = document.createElement("div");
-            working_div.id = "working";
-            document.body.appendChild(working_div);
             //var dt = ev.originalEvent.dataTransfer;
             ev.preventDefault();
             var file = ev.originalEvent.dataTransfer.files[0];
@@ -34,7 +31,6 @@ $(document).ready(function() {
               console.log(event.target);
             };
             reader.readAsDataURL(file);
-            working_div.style.backgroundImage = "url('" + file.name + "')";
             puzzle.src = URL.createObjectURL(file);
             $(ev.target).removeClass('dragover');
             ev.stopPropagation();

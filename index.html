@@ -16,6 +16,20 @@
         <script type="text/javascript" src="jquery-ui-1.7.2.custom.min.js"></script>
         <script type="text/javascript" src="global.js"></script>
         <script type="text/javascript" src="drag-datatransfer.js"></script>
+        
+        <script>
+          function decriment(min){
+            var x = parseInt(document.getElementById("block_size").value);
+            if (x!=min)
+              document.getElementById("block_size").value = (x - 1) + "";
+          }
+          function incriment(max){
+            var x = parseInt(document.getElementById("block_size").value);
+            if (x != max)
+              document.getElementById("block_size").value = (x + 1) + "";
+              
+          }                      
+        </script>
     </head>
     
     <body>
@@ -30,14 +44,22 @@
       </div>
       <div id="instructions">
         <center>
+          Block comparison tolerance : <br />
+          <form id="tinker">
+            <button type="button" onClick="decriment(1);">-</button>
+            <input id="block_size" type="text" size="2" height="1" value="8" maxlength="2" readonly="true">
+            <button type="button" onClick="incriment(20);">+</button>
+          </form>
           Instructions : <br />
-          1. Use Firefox! <br />
+          1. Use Firefox or Chrome! <br />
           2. Save scrambled image from OKCupid to your computer. <br />
           3. Drag image from your computer into the blue box above. <br /> <br />
           
           Tips : <br />
           Drag scrambled image from OKCupid to your desktop,<br />
-          and then again from your desktop to the blue box.<br />  
+          and then again from your desktop to the blue box.<br /> <br />
+          If your scrambled image seems to be "fuzzier" looking, try lowering the "block comparison tolerance"<br />
+          If your scrambled image seems to be "crisper" looking, try raising the "block comparison tolerance"<br />
           <!-- START OF HIT COUNTER CODE -->
           <br>
             <script src="http://www.counter160.com/js.js?img=4">

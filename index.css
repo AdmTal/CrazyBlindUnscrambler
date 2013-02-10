@@ -29,8 +29,8 @@ h1 {
 }
 
 .dragover {
-    background: lightyellow;
-    border: 5px dashed black;    
+    border: 5px dashed black;
+    background-image:url('loading.gif');        
 }
 
 #data_transfer .drophere {
@@ -44,7 +44,6 @@ h1 {
 }
 
 #working {
-    background-size: 100%;
     position:absolute;
     width: 500px;
     height: 500px;
