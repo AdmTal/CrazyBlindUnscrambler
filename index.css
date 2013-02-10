@@ -1,0 +1,64 @@
+body{
+  background:rgba(40,85,162,1);
+}
+
+#instructions{
+  position:absolute;
+  font-size:15px;
+  color:white;
+  top:50%;
+  width:100%;
+  margin-top: 270px;
+  
+}
+
+h1 {
+   	font-size: 48px;
+	  margin: 0 0 30px 0; 
+		font-weight:bold;  
+    color: rgb(10,75,165);
+    text-shadow:
+  	-3px -3px 0 #FFF,  
+    1px -3px 0 #FFF,
+    -3px 3px 0 #FFF,
+    3px 3px 0 #FFF;
+}
+.drophere {
+    background: rgba(5,25,80,1);
+    border: 5px dashed gray;
+}
+
+.dragover {
+    background: lightyellow;
+    border: 5px dashed black;    
+}
+
+#data_transfer .drophere {
+    position:absolute;
+    width: 500px;
+    height: 500px;
+    top:50%;
+    left:50%;
+    margin-left: -250px;
+  	margin-top: -250px;       
+}
+
+#working {
+    background-size: 100%;
+    position:absolute;
+    width: 500px;
+    height: 500px;
+    top:50%;
+    left:50%;
+    margin-left: -250px;
+  	margin-top: -250px;
+    opacity:1.0;
+    -webkit-transition: .9s linear;
+    -moz-transition: .9s linear;
+    -o-transition: .9s linear;
+    transition: .9s linear;
+    border: 5px dashed black; 
+    text-align: center;
+    font-size:50px;
+    font-weight:bold;           
+}
